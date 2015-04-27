@@ -1,26 +1,22 @@
-<table>
-	<tbody>
-		<tr class="text-center">
-			<td><a ng-click="incrementHours()" class="btn btn-link"><span class="glyphicon glyphicon-chevron-up"></span></a></td>
-			<td>&nbsp;</td>
-			<td><a ng-click="incrementMinutes()" class="btn btn-link"><span class="glyphicon glyphicon-chevron-up"></span></a></td>
-			<td ng-show="showMeridian"></td>
-		</tr>
-		<tr>
-			<td class="form-group" ng-class="{'has-error': invalidHours}">
-				<input style="width:50px;" type="text" ng-model="hours" ng-change="updateHours()" class="form-control text-center" ng-readonly="readonlyInput" maxlength="2">
-			</td>
-			<td>:</td>
-			<td class="form-group" ng-class="{'has-error': invalidMinutes}">
-				<input style="width:50px;" type="text" ng-model="minutes" ng-change="updateMinutes()" class="form-control text-center" ng-readonly="readonlyInput" maxlength="2">
-			</td>
-			<td ng-show="showMeridian"><button type="button" class="btn btn-default text-center" ng-click="toggleMeridian()">{{meridian}}</button></td>
-		</tr>
-		<tr class="text-center">
-			<td><a ng-click="decrementHours()" class="btn btn-link"><span class="glyphicon glyphicon-chevron-down"></span></a></td>
-			<td>&nbsp;</td>
-			<td><a ng-click="decrementMinutes()" class="btn btn-link"><span class="glyphicon glyphicon-chevron-down"></span></a></td>
-			<td ng-show="showMeridian"></td>
-		</tr>
-	</tbody>
-</table>
+<div layout="row">
+	<div class="form-group" ng-class="{'has-error': invalidHours}">
+		<div layout="row" class="input-append">
+			<input type="text" ng-model="hours" ng-change="updateHours()" class="text-center" ng-readonly="readonlyInput" maxlength="2" />
+			<div layout="column">
+				<button class="btn-up  ui-grid-icon-up" ng-click="incrementHours()" flex></button>
+				<button class="btn-down  ui-grid-icon-down" ng-click="decrementHours()" flex></button>
+			</div>
+		</div>
+	</div>
+	<span>:</span>
+	<div class="form-group" ng-class="{'has-error': invalidMinutes}">
+		<div layout="row" class="input-append">
+			<input type="text" ng-model="minutes" ng-change="updateMinutes()" class="text-center" ng-readonly="readonlyInput" maxlength="2" />
+			<div layout="column">
+				<button class="btn-up  ui-grid-icon-up" ng-click="incrementMinutes()" flex></button>
+				<button class="btn-down  ui-grid-icon-down" ng-click="decrementMinutes()" flex></button>
+			</div>
+		</div>
+	</div>
+	<div ng-show="showMeridian"><button type="button" class="btn btn-default text-center" ng-click="toggleMeridian()">{{meridian}}</button></div>
+</div>
